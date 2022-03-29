@@ -39,6 +39,30 @@ def getStatus():
     cmd = "STATUS?\\n"
     print(getCommand(cmd))
 
+def getFlagCV():
+    cmd = "STATUS?\\n"
+    output = getCommand(cmd)
+    if (output[0] == "1"):
+        return True
+    else:
+        return False
+
+def getFlagOCP():
+    cmd = "STATUS?\\n"
+    output = getCommand(cmd)
+    if (output[2] == "1"):
+        return True
+    else:
+        return False
+
+def getFlagOutput():
+    cmd = "STATUS?\\n"
+    output = getCommand(cmd)
+    if (output[1] == "1"):
+        return True
+    else:
+        return False
+
 def outputControl(state):
     cmd = ""
     if state:
