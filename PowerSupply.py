@@ -11,7 +11,10 @@ class PowerSupply:
 
     ## Destructor
     def __del__(self):
-        self.ser.close()
+        try:
+            self.ser.close()
+        except AttributeError:
+            pass
 
     ## Private methods
     # Write instruction to the PSU
