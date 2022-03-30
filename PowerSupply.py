@@ -1,6 +1,6 @@
 import serial
 
-class PowerSupply:
+class LABPS3005DN:
     ## Constructor
     def __init__(self, serialPort):
         self.ser = serial.Serial(port=serialPort,
