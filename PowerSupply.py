@@ -42,16 +42,6 @@ class LABPS3005DN:
         cmd = "VSET1?\\n"
         return self.__getCommand(cmd)
 
-    # Set new current limit
-    def setCurrent(self, current):
-        cmd = "ISET1:" + "{:01.3f}".format(current) + "\\n"
-        self.__setCommand(cmd)
-
-    # Set new voltage setpoint
-    def setVoltage(self, voltage):
-        cmd = "VSET1:" + "{:05.2f}".format(voltage) + "\\n"
-        self.__setCommand(cmd)
-
     # Get actual current output
     def getRealCurrent(self):
         cmd = "IOUT1?\\n"
@@ -67,24 +57,38 @@ class LABPS3005DN:
         cmd = "STATUS?\\n"
         return self.__getCommand(cmd)
 
+    # Check Constant Voltage flag
     def getFlagCV(self):
         if (self.getStatus()[0] == "1"):
             return True
         else:
             return False
 
+    # Check output active flag
     def getFlagOutput(self):
         if (self.getStatus()[1] == "1"):
             return True
         else:
             return False
 
+    # Check Over Current Protection flag
     def getFlagOCP(self):
         if (self.getStatus()[2] == "1"):
             return True
         else:
             return False
 
+    # Set new current limit
+    def setCurrent(self, current):
+        cmd = "ISET1:" + "{:01.3f}".format(current) + "\\n"
+        self.__setCommand(cmd)
+
+    # Set new voltage setpoint
+    def setVoltage(self, voltage):
+        cmd = "VSET1:" + "{:05.2f}".format(voltage) + "\\n"
+        self.__setCommand(cmd)
+
+    # Set output state
     def setOutput(self, state):
         cmd = ""
         if state:
