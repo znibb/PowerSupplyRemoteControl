@@ -1,6 +1,14 @@
 # PowerSupplyRemoteControl
 Remote control of PSU via serial terminal connection through Python.
 
+## Usage
+```python
+from PowerSupply import LABPS3005DN
+psu = LABPS3005DN("/dev/USB0")
+psu.setVoltage(5)
+psu.setOutput(True)
+```
+
 ## Supported devices
 1. [Velleman LABPS3005DN](#velleman-labps30005dn)
 
